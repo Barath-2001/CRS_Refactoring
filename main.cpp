@@ -201,7 +201,7 @@ int checking;
 //switch 
 switch (use) {
 case 1:
-menu("ADMIN");
+Menu("ADMIN");
 do {
 cout << "Enter your User name ( Minimum 4 Letters... ) : ";
 cin >> username;
@@ -217,7 +217,7 @@ cout << "Error ! : " << endl;
 }
 } while (!(pass.size() > 3));
 system("cls");
-menu("ADMIN");
+Menu("ADMIN");
 if (username == "admin") {
 a++;
 }
@@ -273,7 +273,7 @@ Person_Info(data);
 
 booked.SetBooked(Info, data);
 system("cls");
-menu("USER");
+Menu("USER");
 cout << "Enter 1 if you want to Rent A Car for some Days \n";
 cout << "Enter 2 if you want to Rent A Car for some Hours \n\n";
 do {
@@ -284,7 +284,7 @@ cout << "Error ! : " << endl;
 }
 } while (checking != 1 && checking != 2);
 system("cls");
-menu("USER");
+Menu("USER");
 if (checking == 1) {
 cout << "Enter Number of Days you want to Rent A Car : ";
 cin >> nod;
@@ -311,7 +311,7 @@ Rent.Cal2(Info);
 }
 
 system("cls");
-menu("USER");
+Menu("USER");
 
 cout << "\t\t\t\tCalculating and Saving Rent...";
 Sleep(3000);
@@ -319,7 +319,7 @@ system("cls");
 cout << "\t\t\t\t\t\tDisplaying Total Rent...";
 Sleep(1000);
 system("cls");
-menu("USER");
+Menu("USER");
 cout << endl;
 Show_Rent(Info, data, Rent, checking);
 }
@@ -330,7 +330,7 @@ break;
 break;
 case 2:
 Info.SetData("Prado", "RIX-6878", "BLACK", 2015, 800, 8000);
-menu("USER");
+Menu("USER");
 cout << "\t Enter 1 to BOOK\n\t Enter 2 to exit. \n ";
 do {
 cin >> bookment;
@@ -342,13 +342,13 @@ cout << "Enter 1 or 2 : ";
 if (bookment == 1) {
 booked.Add();
 system("cls");
-menu("USER");
+Menu("USER");
 cout << "Enter Your Information : \n";
 cout << "=========================\n";
 Person_Info(data);
 booked.SetBooked(Info, data);
 system("cls");
-menu("USER");
+Menu("USER");
 
 cout << "Enter 1 if you want to Rent A Car for some Days \n";
 cout << "Enter 2 if you want to Rent A Car for some Hours \n\n ";
@@ -360,7 +360,7 @@ cout << "Error ! : " << endl;
 }
 } while (checking != 1 && checking != 2);
 system("cls");
-menu("USER");
+Menu("USER");
 if (checking == 1) {
 cout << "Enter Number of Days you want to Rent A Car : ";
 cin >> nod;
@@ -387,20 +387,20 @@ Rent.Cal2(Info);
 }
 
 system("cls");
-menu("USER");
+Menu("USER");
 cout << "\t\t\t\tCalculating and Saving Rent...";
 Sleep(3000);
 system("cls");
 cout << "\t\t\t\t\t\tDisplaying Total Rent...";
 Sleep(1000);
 system("cls");
-menu("USER");
+Menu("USER");
 Show_Rent(Info, data, Rent, checking);
 }
 break;
 case 3:
 Info.SetData("Hillux", "MIK-2724", "WHITE", 2013, 900, 10000);
-menu("USER");
+Menu("USER");
 cout << "\t Enter 1 to BOOK\n\t Enter 2 to exit. \n ";
 do {
 cin >> bookment;
@@ -412,20 +412,20 @@ cout << "Enter 1 or 2 : ";
 if (bookment == 1) {
     booked.Add();
     system("cls");
-    menu("USER");
+    Menu("USER");
     cout << "Enter Your Information : \n";
     cout << "=========================\n";
     Person_Info(data);
     booked.SetBooked(Info, data);
     system("cls");
-    menu("USER");
+    Menu("USER");
     cout << "Enter 1 if you want to Rent A Car for some Days \n";
     cout << "Enter 2 if you want to Rent A Car for some Hours \n\n";
     
     checking = GetRentalType();
     
     system("cls");
-    menu("USER");
+    Menu("USER");
     
     if (checking == 1) {
         nod = GetNumberOfDays();
@@ -481,20 +481,20 @@ double GetNumberOfHours() {
 
 void CalculateAndShowRent(cars& Info, Person& data, TotalRent& Rent, int checking) {
     system("cls");
-    menu("USER");
+    Menu("USER");
     cout << "\t\t\t\tCalculating and Saving Rent...";
     Sleep(3000);
     system("cls");
     cout << "\t\t\t\t\t\tDisplaying Total Rent...";
     Sleep(1000);
     system("cls");
-    menu("USER");
+    Menu("USER");
     Show_Rent(Info, data, Rent, checking);
 }
 break;
 case 4:
 Info.SetData("City", "RIM-5498", "BLUE", 2011, 1000, 8000);
-menu("USER");
+Menu("USER");
 cout << "\t Enter 1 to BOOK\n\t Enter 2 to exit. \n ";
 do {
 cin >> bookment;
@@ -506,13 +506,13 @@ cout << "Enter 1 or 2 : ";
 if (bookment == 1) {
 booked.Add();
 system("cls");
-menu("USER");
+Menu("USER");
 cout << "Enter Your Information : \n";
 cout << "=========================\n";
 Person_Info(data);
 booked.SetBooked(Info, data);
 system("cls");
-menu("USER");
+Menu("USER");
 cout << "Enter 1 if you want to Rent A Car for some Days \n";
 cout << "Enter 2 if you want to Rent A Car for some Hours \n\n ";
 do {
@@ -523,7 +523,7 @@ cout << "Error ! : " << endl;
 }
 } while (checking != 1 && checking != 2);
 system("cls");
-menu("USER");
+Menu("USER");
 if (checking == 1) {
 cout << "Enter Number of Days you want to Rent A Car : ";
 cin >> nod;
