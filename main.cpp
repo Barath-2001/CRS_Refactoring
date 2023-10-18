@@ -124,7 +124,6 @@ void GetBooked() {
 ifstream Read;
 Read.open("Cars Info.txt", ios::in);
 char data;
-const char* fileName = "Booked cars.txt";
 if (Read.is_open()) {
 while (!Read.eof()) {
 Read >> noskipws >> data;
