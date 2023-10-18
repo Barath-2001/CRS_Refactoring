@@ -166,7 +166,7 @@ double Cal(const cars& obj) {
 total = obj.ppd() * days;
 return total;
 }
-double Cal2(cars& obj) {
+double Cal2(const cars& obj) {
 total = obj.pph() * hours;
 return total;
 }
@@ -695,7 +695,7 @@ cout << "\t\tEnter 4 for City 2017." << endl;
 cout << "\t\tEnter 5 to Exit." << endl;
 cout << endl;
 }
-void Show_Rent(cars & c, Person & p, TotalRent & r, int check) {
+void Show_Rent(const cars & c, Person & p, TotalRent & r, int check) {
 cout << "\n\t\t                       Car Rental - Customer Invoice                  " << endl;
 cout << "\t\t ///////////////////////////////////////////////////////////" << endl;
 cout << "\t\t | Invoice No. :" << "------------------|" << setw(18) << "#Cnb81353" << " |" << endl;
