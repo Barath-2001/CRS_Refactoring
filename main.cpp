@@ -326,6 +326,7 @@ Menu_user();
 cout << endl;
 Show_Rent(Info, data, Rent, checking);
 }
+[[fallthrough]];
 else {
 break;
 }
