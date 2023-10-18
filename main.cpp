@@ -546,6 +546,7 @@ cout<<"Error";
 }
 default:
 cout<<"Error";
+break;
 }
 system("cls");
 } while (use != 3);
