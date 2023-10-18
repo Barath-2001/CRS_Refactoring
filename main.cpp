@@ -7,11 +7,9 @@
 using namespace std;
 //prototyping...
 void Menu();
+void Menu_admin();
+void Menu_user();
 void Display_cars();
-double GetNumberOfHours();
-int GetNumberOfDays();
-int GetRentalType();
-void CalculateAndShowRent(cars& Info, Person& data, TotalRent& Rent, int checking);
 //using template input validation...
 template<class T>
 void Validation(T& a) {
@@ -179,7 +177,7 @@ TotalRent Rent;
 int choice;
 int use;
 do {
-Menu("");
+Menu();
 cout << "\t Enter 1 for admin \n\t Enter 2 for user  \n\t Enter 3 to Exit.\n";
 do {
 cin >> use;
@@ -201,7 +199,7 @@ int checking;
 //switch 
 switch (use) {
 case 1:
-Menu("ADMIN");
+Menu_admin();
 do {
 cout << "Enter your User name ( Minimum 4 Letters... ) : ";
 cin >> username;
@@ -217,7 +215,7 @@ cout << "Error ! : " << endl;
 }
 } while (!(pass.size() > 3));
 system("cls");
-Menu("ADMIN");
+Menu_admin();
 if (username == "admin") {
 a++;
 }
@@ -240,7 +238,7 @@ cout << "Press Any Key to go to main menu : ";
 system("pause");
 break;
 case 2:
-Menu("USER");
+Menu_user();
 Display_cars();
 cout << "Enter one of the given Number : ";
 do {
@@ -254,7 +252,7 @@ system("cls");
 switch (choice) {
 case 1:
 Info.SetData("Tesla", "STP-3080", "GREY", 2017, 700, 5000);
-Menu("USER");
+Menu_user();
 cout << "\t Enter 1 to BOOK\n\t Enter 2 to exit. \n ";
 do {
 cin >> bookment;
@@ -266,14 +264,14 @@ cout << "Enter 1 or 2 : ";
 if (bookment == 1) {
 booked.Add();
 system("cls");
-Menu("USER");
+Menu_user();
 cout << "Enter Your Information : \n";
 cout << "=========================\n";
 Person_Info(data);
 
 booked.SetBooked(Info, data);
 system("cls");
-Menu("USER");
+Menu_user();
 cout << "Enter 1 if you want to Rent A Car for some Days \n";
 cout << "Enter 2 if you want to Rent A Car for some Hours \n\n";
 do {
@@ -284,7 +282,7 @@ cout << "Error ! : " << endl;
 }
 } while (checking != 1 && checking != 2);
 system("cls");
-Menu("USER");
+Menu_user();
 if (checking == 1) {
 cout << "Enter Number of Days you want to Rent A Car : ";
 cin >> nod;
@@ -311,7 +309,7 @@ Rent.Cal2(Info);
 }
 
 system("cls");
-Menu("USER");
+Menu_user();
 
 cout << "\t\t\t\tCalculating and Saving Rent...";
 Sleep(3000);
@@ -319,7 +317,7 @@ system("cls");
 cout << "\t\t\t\t\t\tDisplaying Total Rent...";
 Sleep(1000);
 system("cls");
-Menu("USER");
+Menu_user();
 cout << endl;
 Show_Rent(Info, data, Rent, checking);
 }
@@ -330,7 +328,7 @@ break;
 break;
 case 2:
 Info.SetData("Prado", "RIX-6878", "BLACK", 2015, 800, 8000);
-Menu("USER");
+Menu_user();
 cout << "\t Enter 1 to BOOK\n\t Enter 2 to exit. \n ";
 do {
 cin >> bookment;
@@ -342,13 +340,13 @@ cout << "Enter 1 or 2 : ";
 if (bookment == 1) {
 booked.Add();
 system("cls");
-Menu("USER");
+Menu_user();
 cout << "Enter Your Information : \n";
 cout << "=========================\n";
 Person_Info(data);
 booked.SetBooked(Info, data);
 system("cls");
-Menu("USER");
+Menu_user();
 
 cout << "Enter 1 if you want to Rent A Car for some Days \n";
 cout << "Enter 2 if you want to Rent A Car for some Hours \n\n ";
@@ -360,7 +358,7 @@ cout << "Error ! : " << endl;
 }
 } while (checking != 1 && checking != 2);
 system("cls");
-Menu("USER");
+Menu_user();
 if (checking == 1) {
 cout << "Enter Number of Days you want to Rent A Car : ";
 cin >> nod;
@@ -387,20 +385,20 @@ Rent.Cal2(Info);
 }
 
 system("cls");
-Menu("USER");
+Menu_user();
 cout << "\t\t\t\tCalculating and Saving Rent...";
 Sleep(3000);
 system("cls");
 cout << "\t\t\t\t\t\tDisplaying Total Rent...";
 Sleep(1000);
 system("cls");
-Menu("USER");
+Menu_user();
 Show_Rent(Info, data, Rent, checking);
 }
 break;
 case 3:
 Info.SetData("Hillux", "MIK-2724", "WHITE", 2013, 900, 10000);
-Menu("USER");
+Menu_user();
 cout << "\t Enter 1 to BOOK\n\t Enter 2 to exit. \n ";
 do {
 cin >> bookment;
@@ -412,20 +410,20 @@ cout << "Enter 1 or 2 : ";
 if (bookment == 1) {
     booked.Add();
     system("cls");
-    Menu("USER");
+    Menu_user();
     cout << "Enter Your Information : \n";
     cout << "=========================\n";
     Person_Info(data);
     booked.SetBooked(Info, data);
     system("cls");
-    Menu("USER");
+    Menu_user();
     cout << "Enter 1 if you want to Rent A Car for some Days \n";
     cout << "Enter 2 if you want to Rent A Car for some Hours \n\n";
     
     checking = GetRentalType();
     
     system("cls");
-    Menu("USER");
+    Menu_user();
     
     if (checking == 1) {
         nod = GetNumberOfDays();
@@ -481,20 +479,20 @@ double GetNumberOfHours() {
 
 void CalculateAndShowRent(cars& Info, Person& data, TotalRent& Rent, int checking) {
     system("cls");
-    Menu("USER");
+    Menu_user();
     cout << "\t\t\t\tCalculating and Saving Rent...";
     Sleep(3000);
     system("cls");
     cout << "\t\t\t\t\t\tDisplaying Total Rent...";
     Sleep(1000);
     system("cls");
-    Menu("USER");
+    Menu_user();
     Show_Rent(Info, data, Rent, checking);
 }
 break;
 case 4:
 Info.SetData("City", "RIM-5498", "BLUE", 2011, 1000, 8000);
-Menu("USER");
+Menu_user();
 cout << "\t Enter 1 to BOOK\n\t Enter 2 to exit. \n ";
 do {
 cin >> bookment;
@@ -506,13 +504,13 @@ cout << "Enter 1 or 2 : ";
 if (bookment == 1) {
 booked.Add();
 system("cls");
-Menu("USER");
+Menu_user();
 cout << "Enter Your Information : \n";
 cout << "=========================\n";
 Person_Info(data);
 booked.SetBooked(Info, data);
 system("cls");
-Menu("USER");
+Menu_user();
 cout << "Enter 1 if you want to Rent A Car for some Days \n";
 cout << "Enter 2 if you want to Rent A Car for some Hours \n\n ";
 do {
@@ -523,7 +521,7 @@ cout << "Error ! : " << endl;
 }
 } while (checking != 1 && checking != 2);
 system("cls");
-Menu("USER");
+Menu_user();
 if (checking == 1) {
 cout << "Enter Number of Days you want to Rent A Car : ";
 cin >> nod;
@@ -550,14 +548,14 @@ Rent.Cal2(Info);
 }
 
 system("cls");
-Menu("USER");
+Menu_user();
 cout << "\t\t\t\tCalculating and Saving Rent...";
 Sleep(3000);
 system("cls");
 cout << "\t\t\t\t\t\tDisplaying Total Rent...";
 Sleep(1000);
 system("cls");
-Menu(User");
+Menu_user();
 Show_Rent(Info, data, Rent, checking);
 }
 break;
@@ -576,7 +574,21 @@ system("pause");
 }
 //Menu to show Car rental system Logo...
 //at any time...
-void Menu(const string& value) {
+void Menu() {
+cout << "\t\t\t=================================================\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|        -----------------------------          |\n";
+cout << "\t\t\t|        |     CAR RENTAL SYSTEM     |          |\n";
+cout << "\t\t\t|        -----------------------------          |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t=================================================\n\n\n";
+}
+void Menu_admin() {
 cout << "\t\t\t=================================================\n";
 cout << "\t\t\t|                                               |\n";
 cout << "\t\t\t|        -----------------------------          |\n";
@@ -589,7 +601,22 @@ cout << "\t\t\t|                                               |\n";
 cout << "\t\t\t|                                               |\n";
 cout << "\t\t\t|                                               |\n";
 cout << "\t\t\t=================================================\n\n";
-cout << "\t\t\t                   "<<value<<"                  \n\n\n";
+cout << "\t\t\t                   <<<ADMIN>>>                  \n\n\n";
+}
+void Menu_user() {
+cout << "\t\t\t=================================================\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|        -----------------------------          |\n";
+cout << "\t\t\t|        |     CAR RENTAL SYSTEM     |          |\n";
+cout << "\t\t\t|        -----------------------------          |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t|                                               |\n";
+cout << "\t\t\t=================================================\n\n";
+cout << "\t\t\t                   <<<USERS>>>                  \n\n\n";
 }
 void Person_Info(Person & p) {
 bool check = false;
