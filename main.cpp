@@ -541,10 +541,11 @@ Menu_user();
 Show_Rent(Info, data, Rent, checking);
 }
 break;
-case 5:
-
+default:
 break;
 }
+default:
+break;  
 }
 system("cls");
 } while (use != 3);
