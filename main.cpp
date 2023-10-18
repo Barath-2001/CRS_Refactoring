@@ -183,7 +183,8 @@ Person data;
 Bookedcar booked;
 TotalRent Rent;
 
-int choice, use;
+int choice;
+int use;
 do {
 Menu();
 cout << "\t Enter 1 for admin \n\t Enter 2 for user  \n\t Enter 3 to Exit.\n";
@@ -197,7 +198,8 @@ cout << "Enter 1 to 3 : ";
 
 system("cls");
 
-string username, pass;
+string username;
+string pass;
 int a = 0;
 int bookment;
 int nod;
@@ -598,7 +600,12 @@ cout << "\t\t\t                   <<<USERS>>>                  \n\n\n";
 }
 void Person_Info(Person & p) {
 bool check = false;
-string fname, lname, name, Number, nic, address;
+string fname;
+string lname;
+string name;
+string Number;
+string nic;
+string  address;
 int a = 0;
 
 do {
