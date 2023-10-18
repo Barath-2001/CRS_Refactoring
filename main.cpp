@@ -8,6 +8,10 @@ using namespace std;
 //prototyping...
 void Menu();
 void Display_cars();
+double GetNumberOfHours();
+int GetNumberOfDays();
+int GetRentalType();
+void CalculateAndShowRent(cars& Info, Person& data, TotalRent& Rent, int checking);
 //using template input validation...
 template<class T>
 void Validation(T& a) {
