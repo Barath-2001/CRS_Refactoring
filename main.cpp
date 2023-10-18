@@ -408,61 +408,86 @@ cout << "Enter 1 or 2 : ";
 }
 } while (bookment < 1 || bookment>2);
 if (bookment == 1) {
-booked.Add();
-system("cls");
-Menu_user();
-cout << "Enter Your Information : \n";
-cout << "=========================\n";
-Person_Info(data);
-booked.SetBooked(Info, data);
-system("cls");
-Menu_user();
-cout << "Enter 1 if you want to Rent A Car for some Days \n";
-cout << "Enter 2 if you want to Rent A Car for some Hours \n\n";
-do {
-cin >> checking;
-Validation(checking);
-if (checking != 1 && checking != 2) {
-cout << "Error ! : " << endl;
+    booked.Add();
+    system("cls");
+    Menu_user();
+    cout << "Enter Your Information : \n";
+    cout << "=========================\n";
+    Person_Info(data);
+    booked.SetBooked(Info, data);
+    system("cls");
+    Menu_user();
+    cout << "Enter 1 if you want to Rent A Car for some Days \n";
+    cout << "Enter 2 if you want to Rent A Car for some Hours \n\n";
+    
+    checking = GetRentalType();
+    
+    system("cls");
+    Menu_user();
+    
+    if (checking == 1) {
+        nod = GetNumberOfDays();
+        Rent.SetData1(nod);
+        Rent.Cal(Info);
+    }
+    else if (checking == 2) {
+        noh = GetNumberOfHours();
+        Rent.SetData2(noh);
+        Rent.Cal2(Info);
+    }
+    
+    CalculateAndShowRent(Info, data, Rent, checking);
 }
-} while (checking != 1 && checking != 2);
-system("cls");
-Menu_user();
-if (checking == 1) {
-cout << "Enter Number of Days you want to Rent A Car : ";
-cin >> nod;
-Validation(nod);
-while (nod < 1) {
-cout << "Enter Positive Number of Days : ";
-cin >> nod;
-Validation(nod);
-}
-Rent.SetData1(nod);
-Rent.Cal(Info);
-}
-else if (checking == 2) {
-cout << "Enter Number of Hours you want to Rent A Car : ";
-cin >> noh;
-Validation(noh);
-while (noh < 1) {
-cout << "Enter Positive Number of Hours : ";
-cin >> noh;
-Validation(noh);
-}
-Rent.SetData2(noh);
-Rent.Cal2(Info);
+int GetRentalType() {
+    int choice;
+    cout << "Enter 1 or 2: ";
+    do {
+        cin >> choice;
+        Validation(choice);
+        if (choice != 1 && choice != 2) {
+            cout << "Error! Enter 1 or 2: ";
+        }
+    } while (choice != 1 && choice != 2);
+    return choice;
 }
 
-system("cls");
-Menu_user();
-cout << "\t\t\t\tCalculating and Saving Rent...";
-Sleep(3000);
-system("cls");
-cout << "\t\t\t\t\t\tDisplaying Total Rent...";
-Sleep(1000);
-system("cls");
-Menu_user();
-Show_Rent(Info, data, Rent, checking);
+int GetNumberOfDays() {
+    int nod;
+    cout << "Enter Number of Days you want to Rent A Car: ";
+    do {
+        cin >> nod;
+        Validation(nod);
+        if (nod < 1) {
+            cout << "Enter Positive Number of Days: ";
+        }
+    } while (nod < 1);
+    return nod;
+}
+
+double GetNumberOfHours() {
+    double noh;
+    cout << "Enter Number of Hours you want to Rent A Car: ";
+    do {
+        cin >> noh;
+        Validation(noh);
+        if (noh < 1) {
+            cout << "Enter Positive Number of Hours: ";
+        }
+    } while (noh < 1);
+    return noh;
+}
+
+void CalculateAndShowRent(cars& Info, Person& data, TotalRent& Rent, int checking) {
+    system("cls");
+    Menu_user();
+    cout << "\t\t\t\tCalculating and Saving Rent...";
+    Sleep(3000);
+    system("cls");
+    cout << "\t\t\t\t\t\tDisplaying Total Rent...";
+    Sleep(1000);
+    system("cls");
+    Menu_user();
+    Show_Rent(Info, data, Rent, checking);
 }
 break;
 case 4:
