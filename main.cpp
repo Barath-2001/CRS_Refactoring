@@ -543,6 +543,7 @@ Show_Rent(Info, data, Rent, checking);
 break;
 default:
 cout<<"Error";
+break;
 }
 default:
 cout<<"Error";
