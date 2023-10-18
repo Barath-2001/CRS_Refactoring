@@ -27,10 +27,10 @@ string car_name;
 string car_number;
 string colour;
 int model;
-double price_per_hour;
-double price_per_day;
+double price_per_hour=0.0;
+double price_per_day=0.0;
 public:
-cars() : price_per_day(0.0), price_per_hour(0.0) {
+cars()  {
     // The constructor body is empty.
 }
 
