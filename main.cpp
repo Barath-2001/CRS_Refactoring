@@ -34,7 +34,7 @@ cars() {
 price_per_day = 00.0;
 price_per_hour = 00.0;
 }
-string car() {
+string car() const {
 return car_name;
 }
 string cnum() {
