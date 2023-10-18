@@ -542,10 +542,10 @@ Show_Rent(Info, data, Rent, checking);
 }
 break;
 default:
-break;
+cout<<"Error";
 }
 default:
-break;  
+cout<<"Error";
 }
 system("cls");
 } while (use != 3);
