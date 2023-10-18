@@ -30,10 +30,10 @@ int model;
 double price_per_hour;
 double price_per_day;
 public:
-cars() {
-price_per_day = 00.0;
-price_per_hour = 00.0;
+cars() : price_per_day(0.0), price_per_hour(0.0) {
+    // The constructor body is empty.
 }
+
 string car() const {
 return car_name;
 }
