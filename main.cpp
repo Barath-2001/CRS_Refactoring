@@ -625,8 +625,8 @@ do {
 a = 0;
 cout << "Enter Your last Name ( Minimum 3 Letters... ) : ";
 getline(cin, lname);
-for (int i = 0; i < lname.size(); i++) {
-if (!(isalpha(lname[i]))) {
+for (int i :lname) {
+if (!(isalpha(i))) {
 a++;
 }
 else {
