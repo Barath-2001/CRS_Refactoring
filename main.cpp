@@ -162,7 +162,7 @@ days = d;
 void SetData2(double h) {
 hours = h;
 }
-double Cal(cars& obj) {
+double Cal(const cars& obj) {
 total = obj.ppd() * days;
 return total;
 }
