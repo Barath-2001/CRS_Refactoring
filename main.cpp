@@ -83,7 +83,7 @@ return CNIC;
 string no() const {
 return Number;
 }
-void SetData(const string_view& n, const string_view& ad, const string_view& cn, const string_view& num) {
+void SetPersonData(const string_view& n, const string_view& ad, const string_view& cn, const string_view& num) {
 name = n;
 address = ad;
 CNIC = cn;
