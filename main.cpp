@@ -572,7 +572,7 @@ system("pause");
 }
 //Menu to show Car rental system Logo...
 //at any time...
-void Menu(string value) {
+void Menu(const string& value) {
 cout << "\t\t\t=================================================\n";
 cout << "\t\t\t|                                               |\n";
 cout << "\t\t\t|        -----------------------------          |\n";
