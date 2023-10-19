@@ -57,7 +57,6 @@ colour = col;
 price_per_hour = p;
 price_per_day = pd;
 }
-
 string carname() const {
 return car_name;
 }
