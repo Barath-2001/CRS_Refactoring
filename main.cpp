@@ -10,6 +10,10 @@ void Menu();
 void Menu_admin();
 void Menu_user();
 void Display_cars();
+int GetRentalType();
+double GetNumberOfHours();
+int GetNumberOfDays();
+void CalculateAndShowRent();
 //using template input validation...
 template<class T>
 void Validation(T& a) {
@@ -49,7 +53,7 @@ return price_per_hour;
 double ppd() const {
 return price_per_day;
 }
-void SetData(const string_view& cname, const string_view& cnum, const string_view& col, int mod, double p, double pd) {
+void SetData(const string &cname, const string &cnum, const string &col, int mod, double p, double pd) {
 car_number = cnum;
 car_name = cname;
 model = mod;
@@ -83,7 +87,7 @@ return CNIC;
 string no() const {
 return Number;
 }
-void SetPersonData(const string_view& n, const string_view& ad, const string_view& cn, const string_view& num) {
+void SetPersonData(const string& n, const string& ad, const string& cn, const string& num) {
 name = n;
 address = ad;
 CNIC = cn;
@@ -97,7 +101,7 @@ class Bookedcar :public cars {
 private:
 int booked=0;
 public:
-Bookedcar()=default
+Bookedcar()=default;
 void Add() {
 booked += 1;
 }
@@ -167,6 +171,57 @@ return total;
 };
 //new function prototype... Qion k classes pass kr ra hn... aur class ka pehle define hna xruri h...
 void Show_Rent(cars& c, Person& p, TotalRent& r, int check);
+int GetRentalType() {
+    int choice;
+    cout << "Enter 1 or 2: ";
+    do {
+        cin >> choice;
+        Validation(choice);
+        if (choice != 1 && choice != 2) {
+            cout << "Error! Enter 1 or 2: ";
+        }
+    } while (choice != 1 && choice != 2);
+    return choice;
+}
+
+int GetNumberOfDays() {
+    int nod;
+    cout << "Enter Number of Days you want to Rent A Car: ";
+    do {
+        cin >> nod;
+        Validation(nod);
+        if (nod < 1) {
+            cout << "Enter Positive Number of Days: ";
+        }
+    } while (nod < 1);
+    return nod;
+}
+
+double GetNumberOfHours() {
+    double noh;
+    cout << "Enter Number of Hours you want to Rent A Car: ";
+    do {
+        cin >> noh;
+        Validation(noh);
+        if (noh < 1) {
+            cout << "Enter Positive Number of Hours: ";
+        }
+    } while (noh < 1);
+    return noh;
+}
+
+void CalculateAndShowRent(cars& Info, Person& data, TotalRent& Rent, int checking) {
+    system("cls");
+    Menu_user();
+    cout << "\t\t\t\tCalculating and Saving Rent...";
+    Sleep(3000);
+    system("cls");
+    cout << "\t\t\t\t\t\tDisplaying Total Rent...";
+    Sleep(1000);
+    system("cls");
+    Menu_user();
+    Show_Rent(Info, data, Rent, checking);
+}
 //main...
 int main() {
 cars Info;
@@ -196,7 +251,7 @@ int bookment;
 int nod;
 double noh;
 int checking;
-//switch 
+//switch
 switch (use) {
 case 1:
 Menu_admin();
@@ -321,10 +376,6 @@ Menu_user();
 cout << endl;
 Show_Rent(Info, data, Rent, checking);
 }
-[[fallthrough]];
-else {
-break;
-}
 break;
 case 2:
 Info.SetData("Prado", "RIX-6878", "BLACK", 2015, 800, 8000);
@@ -419,12 +470,12 @@ if (bookment == 1) {
     Menu_user();
     cout << "Enter 1 if you want to Rent A Car for some Days \n";
     cout << "Enter 2 if you want to Rent A Car for some Hours \n\n";
-    
+
     checking = GetRentalType();
-    
+
     system("cls");
     Menu_user();
-    
+
     if (checking == 1) {
         nod = GetNumberOfDays();
         Rent.SetData1(nod);
@@ -435,59 +486,8 @@ if (bookment == 1) {
         Rent.SetData2(noh);
         Rent.Cal2(Info);
     }
-    
+
     CalculateAndShowRent(Info, data, Rent, checking);
-}
-int GetRentalType() {
-    int choice;
-    cout << "Enter 1 or 2: ";
-    do {
-        cin >> choice;
-        Validation(choice);
-        if (choice != 1 && choice != 2) {
-            cout << "Error! Enter 1 or 2: ";
-        }
-    } while (choice != 1 && choice != 2);
-    return choice;
-}
-
-int GetNumberOfDays() {
-    int nod;
-    cout << "Enter Number of Days you want to Rent A Car: ";
-    do {
-        cin >> nod;
-        Validation(nod);
-        if (nod < 1) {
-            cout << "Enter Positive Number of Days: ";
-        }
-    } while (nod < 1);
-    return nod;
-}
-
-double GetNumberOfHours() {
-    double noh;
-    cout << "Enter Number of Hours you want to Rent A Car: ";
-    do {
-        cin >> noh;
-        Validation(noh);
-        if (noh < 1) {
-            cout << "Enter Positive Number of Hours: ";
-        }
-    } while (noh < 1);
-    return noh;
-}
-
-void CalculateAndShowRent(cars& Info, Person& data, TotalRent& Rent, int checking) {
-    system("cls");
-    Menu_user();
-    cout << "\t\t\t\tCalculating and Saving Rent...";
-    Sleep(3000);
-    system("cls");
-    cout << "\t\t\t\t\t\tDisplaying Total Rent...";
-    Sleep(1000);
-    system("cls");
-    Menu_user();
-    Show_Rent(Info, data, Rent, checking);
 }
 break;
 case 4:
@@ -708,7 +708,7 @@ do {
 cout << "Enter you Present Address ( Full & Minimum 6 Letters or Digits... ) : ";
 cin.ignore();
 getline(cin, address);
-} while (!(address.size() > 5)); // Address 
+} while (!(address.size() > 5)); // Address
 
 p.SetPersonData(name, address, nic, Number); // Setting values to person class setdata function
 }
